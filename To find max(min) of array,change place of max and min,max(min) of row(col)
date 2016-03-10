@@ -1,0 +1,139 @@
+public class min_max {
+        public static void main(String[] args){
+            int[][] matrix=new int[4][5];
+    for(int i=0;i<matrix.length;i++){
+        for(int j=0;j<matrix[i].length;j++){
+        matrix[i][j]=(int)(Math.random()*100);}}
+    for(int i=0;i<matrix.length;i++){
+        for(int j=0;j<matrix[i].length;j++){
+            System.out.print(matrix[i][j]+" ");
+        }
+          System.out.println();
+	      }
+    
+   findMaxIndex(matrix);
+   findMinIndex(matrix);
+    rowMinMax(matrix);
+    colMinMax(matrix);
+    changeMaxMin(matrix);
+    }
+      
+        public static void findMaxIndex(int[ ][ ] a)
+        {
+        int maxInR=0,maxInC=0;
+            for(int row = 0; row < a.length; row++)
+            {
+                for(int col = 0; col < a[row].length; col++)
+                {
+                    if(a[maxInR][maxInC]<a[row][col])
+                    {
+                       maxInR=row;
+                       maxInC=col;
+                    }
+            
+                }
+            }
+           System.out.println("max index is ["+maxInR+","+maxInC+"] max value :"+a[maxInR][maxInC]);
+           
+        }
+
+        	 
+        
+        public static void findMinIndex(int[][] a){
+        	int minInR=0,minInC=0;
+        	for(int row = 0; row < a.length; row++)
+            {
+                for(int col = 0; col < a[row].length; col++)
+                {
+                    if(a[minInR][minInC]>a[row][col])
+                    {
+                       minInR=row;
+                       minInC=col;
+                    }
+            
+                }
+            }
+        	
+        	  System.out.println("min index is ["+minInR+","+minInC+"] min value:"+a[minInR][minInC]);	      
+		
+        }
+        public static void rowMinMax(int[][] a){
+        for (int i = 0; i < a.length; i++) {
+            int minInRow = a[i][0];
+            int maxInRow = a[i][0];
+            for (int j = 0; j < a[i].length; j++) {
+                if (minInRow > a[i][j]) {
+                    minInRow = a[i][j];
+                }
+
+                if (maxInRow < a[i][j]) {
+                    maxInRow = a[i][j];
+                }
+            }
+            System.out.println("Maximum in "+(i+1)+" row is " + maxInRow);
+            System.out.println("Minimum in "+(i+1)+" row is " + minInRow);
+            minInRow = a[i][0];
+            maxInRow = a[i][0];}}
+        
+        public static void rowMinMax1(int[][] a){
+            for (int i = 0; i < a.length; i++) {
+                int minInRow = a[i][0];
+                int maxInRow = a[i][0];
+                for (int j = 0; j < a[i].length; j++) {
+                    if (minInRow > a[i][j]) {
+                        minInRow = a[i][j];
+                    }
+
+                    if (maxInRow < a[i][j]) {
+                        maxInRow = a[i][j];
+                    }
+                }
+                System.out.println("Maximum in "+(i+1)+" row is " + maxInRow);
+                System.out.println("Minimum in "+(i+1)+" row is " + minInRow);
+                minInRow = a[i][0];
+                maxInRow = a[i][0];}}
+        
+        
+        public static void colMinMax(int[][] a) {
+            for (int j = 0; j < a[0].length; j++) { 
+                int maxInCol = a[0][j];
+                int minInCol=a[0][j];
+                for (int i = 0; i< a.length; i++){
+                    if (a[i][j] > maxInCol){
+                        maxInCol = a[i][j];
+                    }
+                    if(a[i][j]<minInCol){
+                    	minInCol=a[i][j];
+                    }
+                }
+                System.out.println("the maximum value for "+j+": column is-"+ maxInCol );
+                System.out.println("the minimum value for "+j+": column is-"+ minInCol);
+            }
+        }
+
+         public static void changeMaxMin(int[][] a){
+        	 int maxInR=0,maxInC=0;  int minInR=0,minInC=0;
+             for(int row = 0; row < a.length; row++)
+             {
+                 for(int col = 0; col < a[row].length; col++)
+                 {
+                     if(a[maxInR][maxInC]<a[row][col])
+                     {
+                        maxInR=row;
+                        maxInC=col;}                    	
+                    if(a[minInR][minInC]>a[row][col])
+                   {
+                                   minInR=row;
+                                   minInC=col;
+                         }}}
+                    int k=a[maxInR][maxInC];
+                    a[maxInR][maxInC]=a[minInR][minInC];
+                    a[minInR][minInC]=k;  
+                    for(int i=0;i<a.length;i++){
+                        for(int j=0;j<a[i].length;j++){
+                            System.out.print(a[i][j]+" ");
+                        }
+                          System.out.println();
+                	      }
+         
+		}}
